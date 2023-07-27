@@ -3,6 +3,9 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
+local lspconfig = require('plugins.lspconfig')
+local treesitter = require('plugins.treesitter')
+
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
@@ -16,3 +19,4 @@ return require('packer').startup(function(use)
     use 'rebelot/kanagawa.nvim'
 
 end)
+
