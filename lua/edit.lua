@@ -1,3 +1,6 @@
+-- mouse
+vim.opt.mouse = 'a'
+
 -- tab/indent
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
