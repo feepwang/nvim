@@ -6,6 +6,7 @@ return {
 		-- these dependencies will only be loaded when cmp loads
 		-- dependencies are always lazy-loaded unless specified otherwise
 		dependencies = {
+			"neovim/nvim-lspconfig",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"L3MON4D3/LuaSnip",
@@ -67,6 +68,16 @@ return {
 					}
 				},
 			}
+
+			-- lspconfig
+			local lspconfig = require("lspconfig")
+			local capabilities = require('cmp_nvim_lsp').default_capabilities()
+			-- c/c++
+			lspconfig.clangd.capabilities = capabilities
+			-- cmake
+			lspconfig.cmake.capabilities = capabilities
+			-- lua
+			lspconfig.lua_ls.capabilities = capabilities
 		end
 	}
 }
