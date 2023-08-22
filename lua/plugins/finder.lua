@@ -4,8 +4,17 @@ return {
 		dependencies = {
 			"nvim-tree/nvim-web-devicons"
 		},
-		config = function ()
-			require("fzf-lua").setup({})
-		end
+		cmd = { "FzfLua" },
+		keys = {},
+		opts = {},
+	},
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+		end,
+		opts = {}
 	}
 }

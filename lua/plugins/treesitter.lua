@@ -1,6 +1,15 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		dependencies = {
+			{
+				"nvim-treesitter/nvim-treesitter-context",
+				opts = {}
+			}
+		},
+		event = { "BufReadPost", "BufNewFile" },
+		build = ":TSUpdate",
+		cmd = { "TSUpdateSync" },
 		config = function()
 			--  folding
 			vim.cmd("set foldmethod=expr")
@@ -9,7 +18,7 @@ return {
 
 			require("nvim-treesitter.configs").setup({
 				-- A list of parser names, or "all" (the five listed parsers should always be installed)
-				ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+				ensure_installed = { "lua", "vim", "vimdoc", "query" },
 
 				-- Install parsers synchronously (only applied to `ensure_installed`)
 				sync_install = false,
@@ -60,12 +69,6 @@ return {
 					enable = true
 				}
 			})
-		end
-	},
-	{
-		"nvim-treesitter/nvim-treesitter-context",
-		config = function()
-			require("treesitter-context").setup()
 		end
 	}
 }

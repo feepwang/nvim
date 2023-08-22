@@ -11,7 +11,7 @@ return {
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 		},
-		config = function()
+		config = function(_, opts)
 			local cmp = require('cmp')
 			local luasnip = require("luasnip")
 
