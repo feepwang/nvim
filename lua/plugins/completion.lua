@@ -6,7 +6,6 @@ return {
 		-- these dependencies will only be loaded when cmp loads
 		-- dependencies are always lazy-loaded unless specified otherwise
 		dependencies = {
-			"neovim/nvim-lspconfig",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"L3MON4D3/LuaSnip",
@@ -66,7 +65,7 @@ return {
 			lspconfig.clangd.setup({
 				capabilities = capabilities
 			})
-	.		lspconfig.cmake.setup({
+			lspconfig.cmake.setup({
 				capabilities = capabilities
 			})
 		end
