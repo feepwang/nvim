@@ -98,7 +98,7 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 		},
-		event = { "FileType", "BufNewFile" },
+		event = { "UIEnter" },
 		opts = {}
 	},
 	{
@@ -106,10 +106,10 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 		},
-		event = { "FileType", "BufNewFile" },
+		event = { "UIEnter" },
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		event = { "FileType", "BufNewFile" },
+		event = { "UIEnter" },
 	}
 }
