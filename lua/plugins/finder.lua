@@ -6,10 +6,4 @@ return {
 		keys = {},
 		opts = {},
 	},
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		enabled = false,
-		opts = {}
-	}
 }
