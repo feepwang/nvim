@@ -47,6 +47,12 @@ end
 return {
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			{
+				"simrat39/symbols-outline.nvim",
+				opts = {},
+			},
+		},
 		lazy = true,
 		event = { "UIEnter" },
 		config = function()
