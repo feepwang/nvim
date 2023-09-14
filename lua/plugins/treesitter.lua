@@ -10,6 +10,7 @@ return {
 		cmd = { "TSUpdateSync" },
 		event = { "UIEnter" },
 		opts = {
+			auto_install = true,
 			highlight = {
 				enable = true,
 			},
