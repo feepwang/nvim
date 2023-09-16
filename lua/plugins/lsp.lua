@@ -74,8 +74,8 @@ return {
 		"folke/neodev.nvim",
 		dependencies = "neovim/nvim-lspconfig",
 		ft = "lua",
-		opts = {},
 		config = function()
+			require("neodev").setup({})
 			require("lspconfig").lua_ls.setup({
 				settings = {
 					Lua = {
