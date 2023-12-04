@@ -54,7 +54,7 @@ return {
 			-- lspconfig.lua_ls.setup({})
 			lspconfig.clangd.setup({})
 			lspconfig.cmake.setup({})
-			lspconfig.gopls.setup{}
+			lspconfig.gopls.setup {}
 
 			-- Global mappings.
 			-- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -95,9 +95,19 @@ return {
 		opts = {}
 	},
 	{
+		"olexsmir/gopher.nvim",
+		dependencies = {
+			"neovim/nvim-lspconfig",
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter"
+		},
+		ft = { "go" },
+		opts = {},
+	},
+	{
 		"simrat39/symbols-outline.nvim",
 		lazy = true,
 		event = "LspAttach",
 		opts = {},
-	},
+	}
 }
