@@ -47,14 +47,27 @@ end
 return {
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			"williamboman/mason-lspconfig.nvim",
+		},
 		lazy = true,
 		event = { "UIEnter" },
 		config = function()
 			local lspconfig = require("lspconfig")
-			-- lspconfig.lua_ls.setup({})
+		    require("mason").setup()
+    		require("mason-lspconfig").setup()
+			lspconfig.lua_ls.setup({
+				settings = {
+					Lua = {
+						complettion = {
+							callSnippet = "Replace"
+						}
+					}
+				}
+			})
 			lspconfig.clangd.setup({})
 			lspconfig.cmake.setup({})
-			lspconfig.gopls.setup {}
+			lspconfig.gopls.setup({})
 
 			-- Global mappings.
 			-- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -75,24 +88,12 @@ return {
 		"folke/neodev.nvim",
 		dependencies = "neovim/nvim-lspconfig",
 		ft = "lua",
-		config = function()
-			require("neodev").setup({})
-			require("lspconfig").lua_ls.setup({
-				settings = {
-					Lua = {
-						complettion = {
-							callSnippet = "Replace"
-						}
-					}
-				}
-			})
-		end
+		opts = {}
 	},
 	{
 		"p00f/clangd_extensions.nvim",
 		dependencies = "neovim/nvim-lspconfig",
-		ft = { "c", "cpp" },
-		opts = {}
+		ft = { "c", "cpp" }
 	},
 	{
 		"olexsmir/gopher.nvim",
@@ -101,13 +102,16 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter"
 		},
-		ft = { "go" },
-		opts = {},
+		ft = { "go" }
 	},
 	{
 		"simrat39/symbols-outline.nvim",
 		lazy = true,
 		event = "LspAttach",
-		opts = {},
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		dependencies = "williamboman/mason.nvim",
+		lazy = true,
 	}
 }
