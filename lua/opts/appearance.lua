@@ -4,3 +4,4 @@ vim.opt.wrap = false
 vim.opt.number = true
 vim.opt.numberwidth = 3
 
+return {}
