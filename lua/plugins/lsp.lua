@@ -47,15 +47,10 @@ end
 return {
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = {
-			"williamboman/mason-lspconfig.nvim",
-		},
+		dependencies = "williamboman/mason-lspconfig.nvim",
 		lazy = true,
-		event = { "UIEnter" },
 		config = function()
 			local lspconfig = require("lspconfig")
-		    require("mason").setup()
-    		require("mason-lspconfig").setup()
 			lspconfig.lua_ls.setup({
 				settings = {
 					Lua = {
@@ -85,6 +80,17 @@ return {
 		end,
 	},
 	{
+		"williamboman/mason-lspconfig.nvim",
+		dependencies = "williamboman/mason.nvim",
+		event = "VeryLazy",
+		opts = {}
+	},
+	{
+		"williamboman/mason.nvim",
+		lazy = true,
+		opts = {}
+	},
+	{
 		"folke/neodev.nvim",
 		dependencies = "neovim/nvim-lspconfig",
 		ft = "lua",
@@ -93,7 +99,8 @@ return {
 	{
 		"p00f/clangd_extensions.nvim",
 		dependencies = "neovim/nvim-lspconfig",
-		ft = { "c", "cpp" }
+		ft = { "c", "cpp" },
+		opts = {}
 	},
 	{
 		"olexsmir/gopher.nvim",
@@ -102,16 +109,13 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter"
 		},
-		ft = { "go" }
+		ft = { "go" },
+		opts = {}
 	},
 	{
 		"simrat39/symbols-outline.nvim",
 		lazy = true,
 		event = "LspAttach",
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		dependencies = "williamboman/mason.nvim",
-		lazy = true,
+		opts = {}
 	}
 }

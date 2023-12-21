@@ -7,10 +7,11 @@ return {
 			"nvim-treesitter/nvim-treesitter-context",
 		},
 		build = ":TSUpdate",
-		cmd = { "TSUpdateSync" },
-		event = { "UIEnter" },
+		cmd = "TSUpdateSync",
+		event = "VeryLazy",
 		opts = {
 			auto_install = true,
+			ensure_installed = { "lua" },
 			highlight = {
 				enable = true,
 			},
